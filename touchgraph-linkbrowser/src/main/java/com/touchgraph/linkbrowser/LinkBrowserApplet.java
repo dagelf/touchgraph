@@ -2,7 +2,7 @@
  * TouchGraph LLC. Apache-Style Software License
  *
  *
- * Copyright (c) 2001-2002 Alexander Shapiro. All rights reserved.
+ * Copyright (c) 2002 Alexander Shapiro. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -47,49 +47,47 @@
  *
  */
 
-package com.touchgraph.graphlayout;
-
-import java.awt.Point;
-
-/** TGPoint2D is only needed for java 1.1.
-  *   
-  * @author   Alexander Shapiro                                        
-  * @version  1.21  $Id: TGPoint2D.java,v 1.14 2002/04/01 05:51:55 x_ander Exp $
+/**  This code is being released under the "release early, release often" open source mantra. 
+  *  
+  *  It is very dirty, and is intended for only the most determined hacker that wants to 
+  *  make a minor alteration here and there.
+  *
+  *  You are strongly advised to wait for a major rewrite that will occur following the 
+  *  restructuring of the TG Graph Layout code.   
+  *
+  *  @author   Alexander Shapiro                                        
+  *  @version  1.20
   */
-public class TGPoint2D extends Point
-{
-    public TGPoint2D(){}
+  
+package com.touchgraph.linkbrowser;
 
-    public TGPoint2D(int x, int y) {
-        super(x, y);
+import java.awt.BorderLayout;
+
+import javax.swing.JApplet;
+
+public class LinkBrowserApplet extends JApplet {
+	public String getAppletInfo()
+    {
+        String s = "";
+		s += "*******************************************************************\n";
+		s += "*   TouchGraph Link Browser                                       *\n"; 
+		s += "*   (c) 2001                                                      *\n";
+		s += "*   Author: Alexander Shapiro         Email: alex@touchgraph.com  *\n";
+		s += "*******************************************************************\n";
+        return s;
+    }
+	private TGLinkBrowser tgLinkBrowser;
+	
+    public void init() {
+    	System.out.println(getAppletInfo());
+        getContentPane().setLayout(new BorderLayout());
+        setSize(500,500);
+		tgLinkBrowser = new TGLinkBrowser(this);
+        getContentPane().add(tgLinkBrowser, BorderLayout.CENTER);
     }
 
-    public TGPoint2D(Point point) {
-        super(point);
-    }
+	public void setLocale(String nodeName) {
+		tgLinkBrowser.setLocale(nodeName,2);	
+	}
+}	
 
-    public TGPoint2D(double x, double y) {
-      super((int) Math.floor(x + 0.5), (int) Math.floor(y + 0.5));
-    }
-
-//    public double x,y;
-//
-//    public TGPoint2D( double xpos, double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-//    public TGPoint2D( TGPoint2D p ) {
-//        x=p.x;
-//        y=p.y;
-//    }
-//
-//    public void setLocation( double xpos,double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-    public void setX( double xpos ) { x = (int) xpos; }
-    public void setY( double ypos ) { y = (int) ypos; }
-
-} // end com.touchgraph.graphlayout.TGPoint2D

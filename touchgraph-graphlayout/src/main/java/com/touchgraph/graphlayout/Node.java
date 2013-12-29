@@ -126,6 +126,7 @@ public class Node {
 
     public boolean justMadeLocal = false;
     public boolean markedForRemoval = false;
+    public int localEdgeCount;
     
     public int visibleEdgeCnt; //Should only be modified by graphelements.VisibleLocality
     protected boolean visible;
@@ -188,6 +189,7 @@ public class Node {
         font = TEXT_FONT;
         fixed = false;
         typ = DEFAULT_TYPE;
+        localEdgeCount = 0;
         visibleEdgeCnt=0;
         visible = false;
     }

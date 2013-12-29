@@ -150,16 +150,16 @@ public class RotateScroll implements GraphListener {
             double currentAngle=computeAngle(p.x,p.y);
             double dist=Math.sqrt((p.x*p.x)+(p.y*p.y));
 
-            p.x=dist*Math.cos(currentAngle+rotateAngle);
-            p.y=dist*Math.sin(currentAngle+rotateAngle);
+            p.x = (int) (dist * Math.cos(currentAngle+rotateAngle));
+            p.y = (int) (dist * Math.sin(currentAngle+rotateAngle));
         }
 
         protected void undoLens(TGPoint2D p) {
             double currentAngle=computeAngle(p.x,p.y);
             double dist=Math.sqrt((p.x*p.x)+(p.y*p.y));
 
-            p.x=dist*Math.cos(currentAngle-rotateAngle);
-            p.y=dist*Math.sin(currentAngle-rotateAngle);
+            p.x = (int) (dist * Math.cos(currentAngle-rotateAngle));
+            p.y = (int) (dist * Math.sin(currentAngle-rotateAngle));
         }
     }
 

@@ -47,49 +47,43 @@
  *
  */
 
-package com.touchgraph.graphlayout;
+package com.touchgraph.wikibrowser;
 
-import java.awt.Point;
+import com.touchgraph.graphlayout.TGPanel;
 
-/** TGPoint2D is only needed for java 1.1.
-  *   
-  * @author   Alexander Shapiro                                        
-  * @version  1.21  $Id: TGPoint2D.java,v 1.14 2002/04/01 05:51:55 x_ander Exp $
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**  WikiEdge:  A WikiBrowser Edge.
+  *
+  *  @author   Alexander Shapiro                                        
+  *  @version  1.02 $Id: WikiEdge.java,v 1.4 2002/06/11 16:29:07 x_ander Exp $
   */
-public class TGPoint2D extends Point
-{
-    public TGPoint2D(){}
 
-    public TGPoint2D(int x, int y) {
-        super(x, y);
-    }
+public class WikiEdge extends com.touchgraph.graphlayout.Edge {
 
-    public TGPoint2D(Point point) {
-        super(point);
-    }
+    public WikiEdge(WikiNode f, WikiNode t) {
+        this(f, t, DEFAULT_LENGTH);
+	}	
 
-    public TGPoint2D(double x, double y) {
-      super((int) Math.floor(x + 0.5), (int) Math.floor(y + 0.5));
-    }
+    public WikiEdge(WikiNode f, WikiNode t, int len) {
+        super(f,t,len);
+	}	
 
-//    public double x,y;
-//
-//    public TGPoint2D( double xpos, double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-//    public TGPoint2D( TGPoint2D p ) {
-//        x=p.x;
-//        y=p.y;
-//    }
-//
-//    public void setLocation( double xpos,double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-    public void setX( double xpos ) { x = (int) xpos; }
-    public void setY( double ypos ) { y = (int) ypos; }
+	public void paint(Graphics g, TGPanel tgPanel) {
+        Color c;
+        
+        if (tgPanel.getMouseOverN()==from || tgPanel.getMouseOverE()==this) 
+            c = MOUSE_OVER_COLOR; 
+        else
+            c = col;        
 
-} // end com.touchgraph.graphlayout.TGPoint2D
+		int x1=(int) from.drawx;
+		int y1=(int) from.drawy;
+		int x2=(int) to.drawx;
+		int y2=(int) to.drawy;
+		if (intersects(tgPanel.getSize())) {
+            paintArrow(g, x1, y1, x2, y2, c);
+		}
+	}	
+}

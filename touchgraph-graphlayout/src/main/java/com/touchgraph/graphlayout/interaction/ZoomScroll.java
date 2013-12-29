@@ -49,10 +49,15 @@
 
 package com.touchgraph.graphlayout.interaction;
 
-import  com.touchgraph.graphlayout.*;
+import com.touchgraph.graphlayout.GraphListener;
+import com.touchgraph.graphlayout.TGAbstractLens;
+import com.touchgraph.graphlayout.TGPanel;
+import com.touchgraph.graphlayout.TGPoint2D;
 
-import  java.awt.event.*;
-import  javax.swing.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+
+import javax.swing.JScrollBar;
 
 /** ZoomScroll:  Contains code for enlarging the graph by zooming in.
   *
@@ -103,15 +108,14 @@ public class ZoomScroll implements GraphListener {
 
     class ZoomLens extends TGAbstractLens {
         protected void applyLens(TGPoint2D p) {
-            p.x=p.x*Math.pow(2,zoomSB.getValue()/10.0);
-            p.y=p.y*Math.pow(2,zoomSB.getValue()/10.0);
+            p.x = (int) (p.x * Math.pow(2, zoomSB.getValue()/10.0));
+            p.y = (int) (p.y * Math.pow(2,zoomSB.getValue()/10.0));
 
         }
 
         protected void undoLens(TGPoint2D p) {
-            p.x=p.x/Math.pow(2,zoomSB.getValue()/10.0);
-            p.y=p.y/Math.pow(2,zoomSB.getValue()/10.0);
+            p.x = (int) (p.x / Math.pow(2, zoomSB.getValue() / 10.0));
+            p.y = (int) (p.y / Math.pow(2, zoomSB.getValue() / 10.0));
         }
     }
-
 } // end com.touchgraph.graphlayout.interaction.ZoomScroll

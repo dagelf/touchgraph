@@ -79,7 +79,7 @@ public class DragMultiselectUI extends TGAbstractDragUI implements TGPaintListen
     public void preDeactivate() {
         tgPanel.removePaintListener(this);
         tgPanel.repaint();
-    };
+    }
         
           
     public void mousePressed(MouseEvent e) {

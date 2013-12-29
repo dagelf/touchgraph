@@ -49,11 +49,16 @@
 
 package com.touchgraph.graphlayout.interaction;
 
-import  com.touchgraph.graphlayout.*;
-import  com.touchgraph.graphlayout.graphelements.*;
+import com.touchgraph.graphlayout.GraphListener;
+import com.touchgraph.graphlayout.LocalityUtils;
+import com.touchgraph.graphlayout.Node;
+import com.touchgraph.graphlayout.TGException;
+import com.touchgraph.graphlayout.TGPanel;
 
-import  java.awt.event.*;
-import  javax.swing.*;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
+
+import javax.swing.JScrollBar;
 
 /** LocalityScroll.
   *

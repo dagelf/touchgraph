@@ -153,8 +153,8 @@ public class HyperScroll implements GraphListener {
         protected void applyLens(TGPoint2D p) {
             double dist=Math.sqrt(p.x*p.x+p.y*p.y);
             if(dist>0) {
-                p.x=p.x/dist*hyperDist(dist);
-                p.y=p.y/dist*hyperDist(dist);
+                p.x = (int) (p.x/dist*hyperDist(dist));
+                p.y = (int) (p.y/dist*hyperDist(dist));
             }
             else { p.x =0; p.y=0;}
         }
@@ -162,8 +162,8 @@ public class HyperScroll implements GraphListener {
         protected void undoLens(TGPoint2D p) {
             double dist=Math.sqrt(p.x*p.x+p.y*p.y);
             if(dist>0) {
-                p.x=p.x/dist*invHyperDist(dist);
-                p.y=p.y/dist*invHyperDist(dist);
+                p.x = (int) (p.x/dist*invHyperDist(dist));
+                p.y = (int) (p.y/dist*invHyperDist(dist));
             }
             else { p.x =0; p.y=0;}
         }

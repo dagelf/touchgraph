@@ -2,7 +2,7 @@
  * TouchGraph LLC. Apache-Style Software License
  *
  *
- * Copyright (c) 2001-2002 Alexander Shapiro. All rights reserved.
+ * Copyright (c) 2002 Alexander Shapiro. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -47,49 +47,77 @@
  *
  */
 
-package com.touchgraph.graphlayout;
+package com.touchgraph.linkbrowser;
 
-import java.awt.Point;
+import com.touchgraph.graphlayout.TGPanel;
 
-/** TGPoint2D is only needed for java 1.1.
-  *   
-  * @author   Alexander Shapiro                                        
-  * @version  1.21  $Id: TGPoint2D.java,v 1.14 2002/04/01 05:51:55 x_ander Exp $
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**  LBEdge:  A LinkBrowser Edge.  Extends edge by adding different edge types, specifically a bidirectional
+  *  edge type rendered as a thin line.  
+  *
+  *  @author   Alexander Shapiro                                        
+  *  @version  1.20
   */
-public class TGPoint2D extends Point
-{
-    public TGPoint2D(){}
 
-    public TGPoint2D(int x, int y) {
-        super(x, y);
+public class LBEdge extends com.touchgraph.graphlayout.Edge {
+    public final static int BIDIRECTIONAL_EDGE=0;
+    public final static int HIERARCHICAL_EDGE=1;
+    
+    public static int DEFAULT_TYPE = 1;
+    
+	public int edgeType;
+
+    public LBEdge(LBNode f, LBNode t) {
+        this(f, t, DEFAULT_LENGTH);
+	}	
+
+    public LBEdge(LBNode f, LBNode t, int len) {
+        super(f,t,len);
+        edgeType = DEFAULT_TYPE;
+	}	
+
+
+    public void setType(int t) { 
+        edgeType = t;
+    }
+    
+    public static void setEdgeDafaultType(int type) { DEFAULT_TYPE = type; }
+        
+    public int getType() { 
+        return edgeType;
     }
 
-    public TGPoint2D(Point point) {
-        super(point);
+	public static void paintFatLine(Graphics g, int x1, int y1, int x2, int y2, Color c) {  
+	    g.setColor(c);  
+        g.drawLine(x1,   y1,   x2,   y2);
+        g.drawLine(x1+1, y1,   x2+1, y2);
+        g.drawLine(x1+1, y1+1, x2+1, y2+1);
+        g.drawLine(x1,   y1+1, x2  , y2+1);
+	}
+
+    public static void paint(Graphics g, int x1, int y1, int x2, int y2, Color c, int type) {
+        switch (type) {
+            case BIDIRECTIONAL_EDGE:   paintFatLine(g, x1, y1, x2, y2, c); break;
+            case HIERARCHICAL_EDGE:  paintArrow(g, x1, y1, x2, y2, c);  break;
+        }       
     }
 
-    public TGPoint2D(double x, double y) {
-      super((int) Math.floor(x + 0.5), (int) Math.floor(y + 0.5));
-    }
+	public void paint(Graphics g, TGPanel tgPanel) {
+        Color c;
+        
+        if (tgPanel.getMouseOverN()==from || tgPanel.getMouseOverE()==this) 
+            c = MOUSE_OVER_COLOR; 
+        else
+            c = col;        
 
-//    public double x,y;
-//
-//    public TGPoint2D( double xpos, double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-//    public TGPoint2D( TGPoint2D p ) {
-//        x=p.x;
-//        y=p.y;
-//    }
-//
-//    public void setLocation( double xpos,double ypos ) {
-//        x=xpos;
-//        y=ypos;
-//    }
-//
-    public void setX( double xpos ) { x = (int) xpos; }
-    public void setY( double ypos ) { y = (int) ypos; }
-
-} // end com.touchgraph.graphlayout.TGPoint2D
+		int x1=(int) from.drawx;
+		int y1=(int) from.drawy;
+		int x2=(int) to.drawx;
+		int y2=(int) to.drawy;
+		if (intersects(tgPanel.getSize())) {
+            paint(g, x1, y1, x2, y2, c, edgeType);
+		}
+	}	
+}
