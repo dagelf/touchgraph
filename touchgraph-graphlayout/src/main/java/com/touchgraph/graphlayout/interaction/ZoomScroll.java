@@ -72,7 +72,7 @@ public class ZoomScroll implements GraphListener {
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>.
+   /** Constructor with TGPanel <code>tgp</code>.
      */
     public ZoomScroll( TGPanel tgp ) {
         tgPanel=tgp;

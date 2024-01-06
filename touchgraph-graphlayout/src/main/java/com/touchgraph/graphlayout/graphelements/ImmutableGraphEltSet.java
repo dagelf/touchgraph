@@ -69,7 +69,7 @@ public interface ImmutableGraphEltSet {
     public int nodeCount();
 
     /** Return the current Node count.
-      * @deprecated        this method has been replaced by the <tt>nodeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>nodeCount()</code> method.
       */
     public int nodeNum();
 
@@ -80,25 +80,25 @@ public interface ImmutableGraphEltSet {
     public int edgeCount();
 
     /** Return the current Edge count.
-      * @deprecated        this method has been replaced by the <tt>edgeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>edgeCount()</code> method.
       */
     public int edgeNum();
 
     /** Return an iterator over the Edges in the cumulative Vector, null if it is empty. */
     public Iterator getEdges();
 
-    /** Return the Node whose ID matches the String <tt>id</tt>, null if no match is found. */
+    /** Return the Node whose ID matches the String <code>id</code>, null if no match is found. */
     public Node findNode( String id );
 
-    /** Return a Collection of all Nodes whose label matches the String <tt>label</tt>, 
+    /** Return a Collection of all Nodes whose label matches the String <code>label</code>, 
       * null if no match is found. */
     public Collection findNodesByLabel( String label );
 
-   /** Return the first Nodes whose label contains the String <tt>substring</tt>, 
+   /** Return the first Nodes whose label contains the String <code>substring</code>, 
      * null if no match is found. */
     public Node findNodeLabelContaining( String substring );
 
-    /** Return an Edge spanning Node <tt>from</tt> to Node <tt>to</tt>. */
+    /** Return an Edge spanning Node <code>from</code> to Node <code>to</code>. */
     public Edge findEdge( Node from, Node to );
 
     /** Returns a random node, or null if none exist (for making random graphs). */

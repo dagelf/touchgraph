@@ -69,7 +69,7 @@ public abstract class TGAbstractMousePausedUI extends TGUserInterface {
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>.
+   /** Constructor with TGPanel <code>tgp</code>.
      */
      public TGAbstractMousePausedUI( TGPanel tgp ) { // Instantiate this way to keep listening
                                                      // for clicks until deactivate is called

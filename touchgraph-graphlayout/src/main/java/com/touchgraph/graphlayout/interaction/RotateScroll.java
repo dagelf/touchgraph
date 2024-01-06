@@ -73,7 +73,7 @@ public class RotateScroll implements GraphListener {
 
   // ............
 
-    /** Constructor with TGPanel <tt>tgp</tt>.
+    /** Constructor with TGPanel <code>tgp</code>.
       */
     public RotateScroll(TGPanel tgp) {
         tgPanel=tgp;

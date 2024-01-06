@@ -70,7 +70,7 @@ public abstract class TGAbstractDragUI extends TGSelfDeactivatingUI {
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>.
+   /** Constructor with TGPanel <code>tgp</code>.
      */
     public TGAbstractDragUI(TGPanel tgp) {
         tgPanel=tgp;

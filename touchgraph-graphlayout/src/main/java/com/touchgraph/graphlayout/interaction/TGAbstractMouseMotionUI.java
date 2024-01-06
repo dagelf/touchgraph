@@ -68,7 +68,7 @@ public abstract class TGAbstractMouseMotionUI extends TGUserInterface{
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>.
+   /** Constructor with TGPanel <code>tgp</code>.
      */
     public TGAbstractMouseMotionUI( TGPanel tgp ) {
         tgPanel=tgp;

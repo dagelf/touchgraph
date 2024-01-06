@@ -92,7 +92,7 @@ public class TGLayout implements Runnable {
 
   // ............
 
-  /** Constructor with a supplied TGPanel <tt>tgp</tt>.
+  /** Constructor with a supplied TGPanel <code>tgp</code>.
     */
     public TGLayout( TGPanel tgp ) {
         tgPanel = tgp;

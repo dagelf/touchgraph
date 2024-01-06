@@ -86,7 +86,7 @@ public class HVScroll implements GraphListener {
 
   // ............
 
-   /** Constructor with a TGPanel <tt>tgp</tt> and TGLensSet <tt>tgls</tt>.
+   /** Constructor with a TGPanel <code>tgp</code> and TGLensSet <code>tgls</code>.
      */
     public HVScroll(TGPanel tgp, TGLensSet tgls) {
         tgPanel=tgp;
@@ -195,18 +195,22 @@ public class HVScroll implements GraphListener {
     }
 
     private void adjustHOffset() { //The inverse of the "graphMoved" function.
-        //System.out.println(horizontalSB.getDValue());
+//        System.out.println(((double)horizontalSB.getDValue()+1000.0)/2000.0);
         for(int iterate=0;iterate<3;iterate++) { // Iteration needed to yeild cerrect results depite warping lenses
             TGPoint2D center= tgPanel.getCenter();
             TGPoint2D tld = getTopLeftDraw();
             TGPoint2D brd = getBottomRightDraw();
 
-            double newx = ((horizontalSB.getDValue()+1000.0)/2000)*(brd.x-tld.x)+tld.x;
+//            double newx = ((horizontalSB.getDValue()+1000.0)/2000)*(brd.x-tld.x)+tld.x;
+//            double newx = (((double)horizontalSB.getDValue()+1000.0)/2000.0)*(brd.x-tld.x)+tld.x;
+            double newx = tgPanel.getSize().width/2;
             double newy = tgPanel.getSize().height/2;
             TGPoint2D newCenter = tgLensSet.convDrawToReal(newx,newy);
 
-            offset.setX(offset.x+(newCenter.x-center.x));
-            offset.setY(offset.y+(newCenter.y-center.y));
+//            offset.setX(offset.x+(newCenter.x-center.x));
+//            offset.setY(offset.y+(newCenter.y-center.y));
+              offset.setX(newCenter.x);
+              offset.setY(newCenter.y);
             
             tgPanel.processGraphMove();
         }
@@ -219,12 +223,15 @@ public class HVScroll implements GraphListener {
             TGPoint2D brd = getBottomRightDraw();
 
             double newx = tgPanel.getSize().width/2;
-            double newy = ((verticalSB.getDValue()+1000.0)/2000)*(brd.y-tld.y)+tld.y;
+            double newy = tgPanel.getSize().height/2;
+//            double newy = (((double)verticalSB.getDValue()+1000.0)/2000.0)*(brd.y-tld.y)+tld.y;
 
             TGPoint2D newCenter = tgLensSet.convDrawToReal(newx,newy);
 
-            offset.setX(offset.x+(newCenter.x-center.x));
-            offset.setY(offset.y+(newCenter.y-center.y));
+//            offset.setX(offset.x+(newCenter.x-center.x));
+//            offset.setY(offset.y+(newCenter.y-center.y));
+            offset.setX(newCenter.x);
+            offset.setY(newCenter.y);
             
             tgPanel.processGraphMove();
         }

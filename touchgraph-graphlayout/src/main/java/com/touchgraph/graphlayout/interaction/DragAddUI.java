@@ -70,7 +70,7 @@ public class DragAddUI extends TGAbstractDragUI implements TGPaintListener {
 
   // ............
 
-   /** Constructor with provided TGPanel <tt>tgp</tt>.
+   /** Constructor with provided TGPanel <code>tgp</code>.
      */ 
     public DragAddUI( TGPanel tgp ) {
         super(tgp); 

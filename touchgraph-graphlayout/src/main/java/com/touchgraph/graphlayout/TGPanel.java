@@ -176,7 +176,7 @@ public class TGPanel extends JPanel {
     }
 
     /** Returns the current node count within the VisibleLocality.
-      * @deprecated        this method has been replaced by the <tt>visibleNodeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>visibleNodeCount()</code> method.
       */
     public int nodeNum() {
         return visibleLocality.nodeCount();
@@ -187,7 +187,7 @@ public class TGPanel extends JPanel {
         return visibleLocality.nodeCount();
     }
 
-    /** Return the Node whose ID matches the String <tt>id</tt>, null if no match is found.
+    /** Return the Node whose ID matches the String <code>id</code>, null if no match is found.
       *
       * @param id The ID identifier used as a query.
       * @return The Node whose ID matches the provided 'id', null if no match is found.
@@ -198,7 +198,7 @@ public class TGPanel extends JPanel {
     }
     
     
-    /** Return a Collection of all Nodes whose label matches the String <tt>label</tt>, 
+    /** Return a Collection of all Nodes whose label matches the String <code>label</code>, 
       * null if no match is found. */
     public Collection findNodesByLabel( String label ) {
         if ( label == null ) return null; // ignore
@@ -206,7 +206,7 @@ public class TGPanel extends JPanel {
     }
 
     
-   /** Return the first Nodes whose label contains the String <tt>substring</tt>,      
+   /** Return the first Nodes whose label contains the String <code>substring</code>,      
      * null if no match is found. 
      * @param substring The Substring used as a query.
      */
@@ -246,7 +246,7 @@ public class TGPanel extends JPanel {
     }
 
 
-    /** Add the Node <tt>node</tt> to the visibleLocality, checking for ID uniqueness. */
+    /** Add the Node <code>node</code> to the visibleLocality, checking for ID uniqueness. */
     public void addNode( final Node node ) throws TGException {
         synchronized (localityUtils) {
             visibleLocality.addNode(node);
@@ -329,7 +329,7 @@ public class TGPanel extends JPanel {
     }
 
     /** Return the number of Edges in the Locality. 
-      * @deprecated        this method has been replaced by the <tt>visibleEdgeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>visibleEdgeCount()</code> method.
       */
     public int edgeNum() {
         return visibleLocality.edgeCount();

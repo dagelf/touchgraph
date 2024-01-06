@@ -74,7 +74,7 @@ public class Locality extends GraphEltSet {
 
   // ............
 
-  /** Constructor with GraphEltSet <tt>ges</tt>.
+  /** Constructor with GraphEltSet <code>ges</code>.
     */
     public Locality(GraphEltSet ges) {
         super();

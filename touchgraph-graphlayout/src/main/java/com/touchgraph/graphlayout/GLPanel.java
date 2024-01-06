@@ -162,7 +162,7 @@ public class GLPanel extends JPanel {
     //}
 
     /** Sets the horizontal offset to p.x, and the vertical offset to p.y
-      * given a Point <tt>p<tt>. 
+      * given a Point <code>p</code>. 
       */
     public void setOffset( Point p ) {
         hvScroll.setOffset(p);

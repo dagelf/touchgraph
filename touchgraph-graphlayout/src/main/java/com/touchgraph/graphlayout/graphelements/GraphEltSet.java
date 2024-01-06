@@ -85,14 +85,14 @@ public class GraphEltSet implements ImmutableGraphEltSet {
 
   // Node manipulation ...........................
 
-    /** Return the Node at int <tt>index</tt>, null if none are available. */
+    /** Return the Node at int <code>index</code>, null if none are available. */
     protected Node nodeAt( int i ) {
         if ( nodes.size() == 0 ) return null;
         return (Node)nodes.elementAt(i);
     }
 
     /** Return the number of Nodes in the cumulative Vector. 
-      * @deprecated        this method has been replaced by the <tt>nodeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>nodeCount()</code> method.
       */
     public int nodeNum() {
         return nodes.size(); 
@@ -109,7 +109,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         return nodes.iterator(); 
     }
 
-    /** Registers the Node <tt>node</tt> via its ID String <tt>id</tt>. 
+    /** Registers the Node <code>node</code> via its ID String <code>id</code>. 
       *
       * @param id the ID of the object.
       * @param node the Node to be registered.
@@ -118,7 +118,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
   // FIXME
     //}
 
-    /** Add the Node <tt>node</tt> to the graph, and 
+    /** Add the Node <code>node</code> to the graph, and 
       * registers the Node via its ID. If no ID exists, no registration occurs. */
     public void addNode( Node node ) throws TGException {
         String id = node.getID();
@@ -144,21 +144,21 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         //} else throw new TGException(TGException.NODE_NO_ID,"node has no ID."); // could be ignored?
     }
 
-    /** Returns true if the graph contains the Node <tt>node</tt>. */
+    /** Returns true if the graph contains the Node <code>node</code>. */
     public boolean contains( Node node ) {
         return nodes.contains(node);
     }
 
   // Edge manipulation ...........................
 
-    /** Return the Edge at int <tt>index</tt>, null if none are available. */
+    /** Return the Edge at int <code>index</code>, null if none are available. */
     protected Edge edgeAt( int index ) {
         if ( edges.size() == 0 ) return null;
         return (Edge)edges.elementAt(index);
     }
 
     /** Return the number of Edges in the cumulative Vector. 
-      * @deprecated        this method has been replaced by the <tt>edgeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>edgeCount()</code> method.
       */
     public int edgeNum() {
         return edges.size(); 
@@ -175,7 +175,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         else return edges.iterator(); 
     }
 
-    /** Add the Edge <tt>edge</tt> to the graph. */
+    /** Add the Edge <code>edge</code> to the graph. */
     public void addEdge( Edge edge ) {
         if ( edge == null ) return;
         if(!contains(edge)) {
@@ -185,8 +185,8 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         }
     }
 
-    /** Add an Edge from Node <tt>from</tt> to Node <tt>to</tt>, 
-      * with tension of int <tt>tension</tt>, returning the Edge.
+    /** Add an Edge from Node <code>from</code> to Node <code>to</code>, 
+      * with tension of int <code>tension</code>, returning the Edge.
       */
     public Edge addEdge( Node from, Node to, int tension ) {
         Edge edge = null;
@@ -197,18 +197,18 @@ public class GraphEltSet implements ImmutableGraphEltSet {
          return edge;
     }
 
-    /** Returns true if the graph contains the Edge <tt>edge</tt>. */
+    /** Returns true if the graph contains the Edge <code>edge</code>. */
     public boolean contains( Edge edge ) {
         return edges.contains(edge);
     }
 
-    /** Return the Node whose ID matches the String <tt>id</tt>, null if no match is found. */
+    /** Return the Node whose ID matches the String <code>id</code>, null if no match is found. */
     public Node findNode( String id ) {
         if ( id == null ) return null; // ignore
         return (Node)nodeIDRegistry.get(id);
     }
 
-   /** Return a Collection of all Nodes whose label matches the String <tt>label</tt>, 
+   /** Return a Collection of all Nodes whose label matches the String <code>label</code>, 
      * null if no match is found. */
     public Collection findNodesByLabel( String label ) {
         Vector nodelist = new Vector();
@@ -221,7 +221,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         else return nodelist;
     }
 
-   /** Return the first Nodes whose label contains the String <tt>substring</tt>, 
+   /** Return the first Nodes whose label contains the String <code>substring</code>, 
      * null if no match is found. */
     public Node findNodeLabelContaining( String substring ) {
          for ( int i = 0 ; i < nodeCount() ; i++) {
@@ -239,7 +239,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         return null;
     }
 
-    /** Return an Edge spanning Node <tt>from</tt> to Node <tt>to</tt>. */
+    /** Return an Edge spanning Node <code>from</code> to Node <code>to</code>. */
     public Edge findEdge( Node from, Node to ) {
         for ( int i = 0 ; i < from.edgeCount(); i++ ) {
             Edge e = from.edgeAt(i);
@@ -248,7 +248,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         return null;
     }
 
-    /** Delete the Edge <tt>edge</tt>. */
+    /** Delete the Edge <code>edge</code>. */
     public boolean deleteEdge( Edge edge ) {
         synchronized(edges) {
             if ( edge == null ) return false;
@@ -259,7 +259,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         }
     }
 
-    /** Delete the Edges contained within the Vector <tt>edgedToDelete</tt>. */
+    /** Delete the Edges contained within the Vector <code>edgedToDelete</code>. */
     public void deleteEdges( Vector edgesToDelete ) {
         synchronized(edges) {
             for (int i=0;i<edgesToDelete.size();i++) {
@@ -268,7 +268,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         }
     }
 
-   /** Delete the Edge spanning Node <tt>from</tt> to Node <tt>to</tt>,
+   /** Delete the Edge spanning Node <code>from</code> to Node <code>to</code>,
      * returning true if successful. */
     public boolean deleteEdge( Node from, Node to ) {
         synchronized(edges) {
@@ -278,7 +278,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
         }
     }
 
-    /** Delete the Node <tt>node</tt>, returning true if successful. */
+    /** Delete the Node <code>node</code>, returning true if successful. */
     public boolean deleteNode( Node node ) {
         synchronized (nodes) {
             if ( node == null ) return false;
@@ -302,7 +302,7 @@ public class GraphEltSet implements ImmutableGraphEltSet {
          return true;
     }
 
-    /** Delete the Nodes contained within the Vector <tt>nodesToDelete</tt>. */
+    /** Delete the Nodes contained within the Vector <code>nodesToDelete</code>. */
     public void deleteNodes( Vector nodesToDelete ) {
         synchronized (nodes) {
             for (int i=0;i<nodesToDelete.size();i++) {

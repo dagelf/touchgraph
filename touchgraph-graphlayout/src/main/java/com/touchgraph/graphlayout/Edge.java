@@ -106,7 +106,7 @@ public class Edge {
         return col;
     }
 
-   /** Set the color of this Edge to the Color <tt>color</tt>. */
+   /** Set the color of this Edge to the Color <code>color</code>. */
     public void setColor( Color color ) {
         col = color;
     }
@@ -117,7 +117,7 @@ public class Edge {
         return id;
     }
 
-   /** Set the ID of this Edge to the String <tt>id</tt>. */
+   /** Set the ID of this Edge to the String <code>id</code>. */
     public void setID( String id )
     {
         this.id=id;
@@ -128,12 +128,12 @@ public class Edge {
         return length;
     }
 
-   /** Set the length of this Edge to the int <tt>len</tt>. */
+   /** Set the length of this Edge to the int <code>len</code>. */
     public void setLength(int len) {
         length=len;
     }
 
-   /** Set the visibility of this Edge to the boolean <tt>v</tt>. */
+   /** Set the visibility of this Edge to the boolean <code>v</code>. */
     public void setVisible( boolean v) {
         visible = v;
     } 

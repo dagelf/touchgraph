@@ -75,7 +75,7 @@ public class DragNodeUI extends TGAbstractDragUI{
 
   // ............
 
-    /** Constructor with TGPanel <tt>tgp</tt>.
+    /** Constructor with TGPanel <code>tgp</code>.
       */
     public DragNodeUI( TGPanel tgp ) {
         super(tgp);

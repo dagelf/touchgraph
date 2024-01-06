@@ -89,7 +89,7 @@ public class GLEditUI extends TGUserInterface {
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>.
+   /** Constructor with TGPanel <code>tgp</code>.
      */
     public GLEditUI( TGPanel tgp ) {
         active = false;

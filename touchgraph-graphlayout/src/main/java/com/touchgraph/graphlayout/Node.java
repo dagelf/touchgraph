@@ -145,7 +145,7 @@ public class Node {
         lbl = id;
     }
 
-   /** Constructor with the required ID <tt>id</tt>, using defaults 
+   /** Constructor with the required ID <code>id</code>, using defaults 
      * for type (rectangle), color (a static variable from TGPanel).
      * The Node's label will be taken from the ID value.
      */
@@ -155,7 +155,7 @@ public class Node {
         lbl = id;
     }
 
-   /** Constructor with Strings for ID <tt>id</tt> and <tt>label</tt>, using defaults 
+   /** Constructor with Strings for ID <code>id</code> and <code>label</code>, using defaults 
      * for type (rectangle) and color (a static variable from TGPanel).
      * If the label is null, it will be taken from the ID value.
      */
@@ -166,8 +166,8 @@ public class Node {
         else lbl = label;
     }
 
-   /** Constructor with a String ID <tt>id</tt>, an int <tt>type</tt>, Background Color <tt>bgColor</tt>, 
-     * and a String <tt>label</tt>. If the label is null, it will be taken from the ID value.
+   /** Constructor with a String ID <code>id</code>, an int <code>type</code>, Background Color <code>bgColor</code>, 
+     * and a String <code>label</code>. If the label is null, it will be taken from the ID value.
      * @see TYPE_RECTANGLE
      * @see TYPE_ROUNDRECT
      */
@@ -208,7 +208,7 @@ public class Node {
     public static void setNodeTextFont( Font font ) { TEXT_FONT = font; }
     public static void setNodeType( int type ) { DEFAULT_TYPE = type; }
   
-    /** Set the ID of this Node to the String <tt>id</tt>.
+    /** Set the ID of this Node to the String <code>id</code>.
       */
     public void setID( String id ) {
         this.id = id;
@@ -220,7 +220,7 @@ public class Node {
         return id;
     }
 
-    /** Set the location of this Node provided the Point <tt>p</tt>.
+    /** Set the location of this Node provided the Point <code>p</code>.
       */
     public void setLocation( Point p ) {
         this.x = p.x;
@@ -234,7 +234,7 @@ public class Node {
         return new Point((int)x,(int)y);
     }
 
-    /** Set the visibility of this Node to the boolean <tt>v</tt>. 
+    /** Set the visibility of this Node to the boolean <code>v</code>. 
       */
     public void setVisible( boolean v) {
         visible = v;
@@ -246,7 +246,7 @@ public class Node {
         return visible;
     } 
  
-    /** Set the type of this Node to the int <tt>type</tt>.
+    /** Set the type of this Node to the int <code>type</code>.
       * @see TYPE_RECTANGLE
       * @see TYPE_ROUNDRECT 
       * @see TYPE_ELLIPSE
@@ -267,7 +267,7 @@ public class Node {
         return typ;
     }
  
-    /** Set the font of this Node to the Font <tt>font</tt>. */
+    /** Set the font of this Node to the Font <code>font</code>. */
     public void setFont( Font font ) {
         this.font = font;
     }
@@ -277,7 +277,7 @@ public class Node {
         return font;
     }
   
-    /** Set the background color of this Node to the Color <tt>bgColor</tt>. */
+    /** Set the background color of this Node to the Color <code>bgColor</code>. */
     public void setBackColor( Color bgColor ) {
         backColor = bgColor;
     }
@@ -288,7 +288,7 @@ public class Node {
         return backColor;
     }
 
-    /** Set the text color of this Node to the Color <tt>txtColor</tt>. */
+    /** Set the text color of this Node to the Color <code>txtColor</code>. */
     public void setTextColor( Color txtColor ) {
         textColor = txtColor;
     }
@@ -301,7 +301,7 @@ public class Node {
     }
 
 
-   /** Set the label of this Node to the String <tt>label</tt>. */
+   /** Set the label of this Node to the String <code>label</code>. */
     public void setLabel( String label ) {
         lbl = label;
     }
@@ -312,7 +312,7 @@ public class Node {
         return lbl;
     }
 
-   /** Set the fixed status of this Node to the boolean <tt>fixed</tt>. */
+   /** Set the fixed status of this Node to the boolean <code>fixed</code>. */
     public void setFixed( boolean fixed ) {
         this.fixed = fixed;
     }
@@ -327,7 +327,7 @@ public class Node {
     // ....
 
     /** Return the number of Edges in the cumulative Vector. 
-      * @deprecated        this method has been replaced by the <tt>edgeCount()</tt> method.
+      * @deprecated        this method has been replaced by the <code>edgeCount()</code> method.
       */
     public int edgeNum() {
         return edges.size(); 
@@ -349,18 +349,18 @@ public class Node {
         return visibleEdgeCnt;
     }
 
-    /** Return the Edge at int <tt>index</tt>. */
+    /** Return the Edge at int <code>index</code>. */
     public Edge edgeAt( int index ) {
         return (Edge)edges.elementAt(index);
     }
 
-    /** Add the Edge <tt>edge</tt> to the graph. */
+    /** Add the Edge <code>edge</code> to the graph. */
     public void addEdge( Edge edge ) {
         if ( edge == null ) return;
         edges.addElement(edge);
     }
 
-    /** Remove the Edge <tt>edge</tt> from the graph. */
+    /** Remove the Edge <code>edge</code> from the graph. */
     public void removeEdge( Edge edge ) {
         edges.removeElement(edge);
     }
@@ -383,18 +383,18 @@ public class Node {
         }
     }
 
-    /** Returns true if this Node intersects Dimension <tt>d</tt>. */
+    /** Returns true if this Node intersects Dimension <code>d</code>. */
     public boolean intersects( Dimension d ) {
         return ( drawx > 0 && drawx < d.width && drawy>0 && drawy < d.height );
     }
 
-    /** Returns true if this Node contains the Point <tt>px,py</tt>. */
+    /** Returns true if this Node contains the Point <code>px,py</code>. */
     public boolean containsPoint( double px, double py ) {
         return (( px > drawx-getWidth()/2) && ( px < drawx+getWidth()/2) 
                 && ( py > drawy-getHeight()/2) && ( py < drawy+getHeight()/2));
     }
 
-    /** Returns true if this Node contains the Point <tt>p</tt>. */
+    /** Returns true if this Node contains the Point <code>p</code>. */
     public boolean containsPoint( Point p ) {
         return (( p.x > drawx-getWidth()/2) && ( p.x < drawx+getWidth()/2) 
                 && ( p.y > drawy-getHeight()/2) && ( p.y < drawy+getHeight()/2));

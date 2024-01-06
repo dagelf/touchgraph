@@ -124,7 +124,7 @@ public class XMLio {
         read(fileName, new FileInputStream(fileName), afterReading);        
 	}
 
-   /** Reads data from a URL <tt>url</tt>, executing the <tt>afterReading</tt> Thread
+   /** Reads data from a URL <code>url</code>, executing the <code>afterReading</code> Thread
      * after the data is read in.
      */
     public void read(URL url, Thread afterReading) throws Exception{

@@ -73,8 +73,8 @@ public class HVRotateDragUI extends TGAbstractDragUI implements TGPaintListener 
 
   // ............
 
-   /** Constructor with TGPanel <tt>tgp</tt>, HVScroll <tt>hvs</tt>
-     * and a RotateScroll <tt>rs</tt>.
+   /** Constructor with TGPanel <code>tgp</code>, HVScroll <code>hvs</code>
+     * and a RotateScroll <code>rs</code>.
      */
     public HVRotateDragUI( TGPanel tgp, HVScroll hvs, RotateScroll rs ) {
         super(tgp);
